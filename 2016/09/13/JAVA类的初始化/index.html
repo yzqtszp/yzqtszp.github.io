@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>JAVA类的初始化 | 一个人的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="java,class,jvm" />
+    
+    <meta name="description" content="&amp;emsp;关于JAVA类的初始化步骤.
+eg:&amp;emsp;如下代码:1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950511	2	class X &amp;#123;3	    static String x=&quot;x value&quot;;4	    String str = &quot;st">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA类的初始化">
+<meta property="og:url" content="http://yoursite.com/2016/09/13/JAVA类的初始化/index.html">
+<meta property="og:site_name" content="一个人的博客">
+<meta property="og:description" content="&amp;emsp;关于JAVA类的初始化步骤.
+eg:&amp;emsp;如下代码:1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950511	2	class X &amp;#123;3	    static String x=&quot;x value&quot;;4	    String str = &quot;st">
+<meta property="og:image" content="https://www.processon.com/chart_image/57d1209ee4b0942d7a758181.png">
+<meta property="og:updated_time" content="2016-09-13T05:21:53.690Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA类的初始化">
+<meta name="twitter:description" content="&amp;emsp;关于JAVA类的初始化步骤.
+eg:&amp;emsp;如下代码:1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950511	2	class X &amp;#123;3	    static String x=&quot;x value&quot;;4	    String str = &quot;st">
+<meta name="twitter:image" content="https://www.processon.com/chart_image/57d1209ee4b0942d7a758181.png">
+    
+
+    
+        <link rel="alternate" href="/" title="一个人的博客" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/titillium-web/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    
+    
+    
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Inici</a>
+                                </li>
+                            
+                                        
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">Quant a</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'categories',
+            TAGS: 'etiquetes',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    Sense categoria
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-JAVA类的初始化" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        JAVA类的初始化
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-subtitle">
+                <a href="/2016/09/13/JAVA类的初始化/" class="article-date">
+    <time datetime="2016-09-13T05:08:35.497Z" itemprop="datePublished">2016-09-13</time>
+</a>
+                
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-class-jvm/">java,class,jvm</a></li></ul>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h4 id="emsp-关于JAVA类的初始化步骤"><a href="#emsp-关于JAVA类的初始化步骤" class="headerlink" title="&emsp;关于JAVA类的初始化步骤."></a>&emsp;关于JAVA类的初始化步骤.</h4><p><img src="https://www.processon.com/chart_image/57d1209ee4b0942d7a758181.png" alt="JAVA类初始化示意图"></p>
+<h4 id="eg"><a href="#eg" class="headerlink" title="eg:"></a>eg:</h4><p>&emsp;如下代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>	</div><div class="line"><span class="number">2</span>	<span class="class"><span class="keyword">class</span> <span class="title">X</span> </span>&#123;</div><div class="line"><span class="number">3</span>	    <span class="keyword">static</span> String x=<span class="string">"x value"</span>;</div><div class="line"><span class="number">4</span>	    String str = <span class="string">"str value"</span>;</div><div class="line"><span class="number">5</span>	    Y b = <span class="keyword">new</span> Y();</div><div class="line"><span class="number">6</span>	    <span class="keyword">static</span>&#123;</div><div class="line"><span class="number">7</span>	        System.out.println(x);</div><div class="line"><span class="number">8</span>	        System.out.println(<span class="string">"X static block"</span>);</div><div class="line"><span class="number">9</span>	        x=<span class="string">"static value"</span>;</div><div class="line"><span class="number">10</span>	    &#125;</div><div class="line"><span class="number">11</span>	    &#123;</div><div class="line"><span class="number">12</span>	        System.out.println(str);</div><div class="line"><span class="number">13</span>	    &#125;</div><div class="line"><span class="number">14</span>	    X() &#123;        </div><div class="line"><span class="number">15</span>	        System.out.println(<span class="string">"X"</span>);</div><div class="line"><span class="number">16</span>	        System.out.println(x);</div><div class="line"><span class="number">17</span>	        x=<span class="string">"x value changed!"</span>;</div><div class="line"><span class="number">18</span>	    &#125;</div><div class="line"><span class="number">19</span>	&#125;</div><div class="line"><span class="number">20</span>	</div><div class="line"><span class="number">21</span>	</div><div class="line"><span class="number">22</span>	<span class="class"><span class="keyword">class</span> <span class="title">Y</span> </span>&#123;</div><div class="line"><span class="number">23</span>	    String yVar=<span class="string">"Y value"</span>;</div><div class="line"><span class="number">24</span>	    Y() &#123;</div><div class="line"><span class="number">25</span>	        System.out.println(<span class="string">"Y"</span>);</div><div class="line"><span class="number">26</span>	        System.out.println(yVar);</div><div class="line"><span class="number">27</span>	        yVar=<span class="string">"y value changed!"</span>;</div><div class="line"><span class="number">28</span>	    &#125;</div><div class="line"><span class="number">29</span>	    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="number">30</span>	        System.out.println(yVar);</div><div class="line"><span class="number">31</span>	    &#125;</div><div class="line"><span class="number">32</span>	&#125;</div><div class="line"><span class="number">33</span>	</div><div class="line"><span class="number">34</span>	</div><div class="line"><span class="number">35</span>	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Z</span> <span class="keyword">extends</span> <span class="title">X</span> </span>&#123;</div><div class="line"><span class="number">36</span>	    Y y ;</div><div class="line"><span class="number">37</span>	    <span class="keyword">static</span>&#123;</div><div class="line"><span class="number">38</span>	        System.out.println(<span class="string">"Z static block"</span>);</div><div class="line"><span class="number">39</span>	    &#125;</div><div class="line"><span class="number">40</span>	    &#123;</div><div class="line"><span class="number">41</span>	        y = <span class="keyword">new</span> Y();</div><div class="line"><span class="number">42</span>	        y.show();</div><div class="line"><span class="number">43</span>	    &#125;</div><div class="line"><span class="number">44</span>	    Z() &#123;</div><div class="line"><span class="number">45</span>	        <span class="comment">//super</span></div><div class="line"><span class="number">46</span>	        System.out.println(<span class="string">"Z"</span>);</div><div class="line"><span class="number">47</span>	    &#125;</div><div class="line"><span class="number">48</span>	    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"><span class="number">49</span>	        System.out.println(<span class="keyword">new</span> Z().x);</div><div class="line"><span class="number">50</span>	    &#125;</div><div class="line"><span class="number">51</span>	&#125;</div></pre></td></tr></table></figure></p>
+<p>执行顺序是:<br>&emsp;1.首先寻找带有main方法的类,加载Z.但Z有父类X,所以在加载Z之前要先加载类X.<br>&emsp;2.按顺序加载X中的static代码块,为静态变量赋值,并在控制台上打印:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x value</div><div class="line">      X <span class="keyword">static</span> block</div></pre></td></tr></table></figure></p>
+<p>   &emsp;变量x的值变更为”static value”.<br>   &emsp;3.完成上述步骤后开始加载Z类.加载Z类中的静态代码块并在控制台打印:<br>   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Z <span class="keyword">static</span> block</div></pre></td></tr></table></figure></p>
+<p>&emsp;4.执行Z类中的main方法,此时需要调用Z类的构造函数来生成一个Z类对象,同理需要先执行Z类父类X的构造函数.<br>&emsp;5.在执行类的构造函数之前,先要为类的成员变量分配内存并赋初始值,同时执行构造代码块,操作成员变量和构造代码块按代码的行文顺序执行.在X类中表现为,先为str赋值,然后是生成Y类的一个对象.<br>&emsp;6.调用Y的构造函数,先将yVar赋值为”Y value”,然后热行函数体在控制台上打印:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Y</div><div class="line">      Y value</div></pre></td></tr></table></figure></p>
+<p>并将yVar的值更改为”y value changed!”.<br>&emsp;7.之后执行X类中的构造代码块并打印:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str value</div></pre></td></tr></table></figure></p>
+<p>之后执行X构造函数体打印<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">X</div><div class="line">      <span class="keyword">static</span> value</div></pre></td></tr></table></figure></p>
+<p>将x的值更改为”x value changed!”.<br>&emsp;8.返回Z类,执行Z类的构造代码块.将步骤6再执行一遍.然后调用Y类的show()方法并打印:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">y value changed!</div></pre></td></tr></table></figure></p>
+<p>执行Z类构造函数体打印<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Z</div></pre></td></tr></table></figure></p>
+<p>之后打印出new Z().x的值:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> value</div></pre></td></tr></table></figure></p>
+<p>&emsp;9.最终控制台上打印结果为:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">x value</div><div class="line">      X <span class="keyword">static</span> block</div><div class="line">      Z <span class="keyword">static</span> block</div><div class="line">      Y</div><div class="line">      Y value</div><div class="line">      str value</div><div class="line">      X</div><div class="line">      <span class="keyword">static</span> value</div><div class="line">      Y</div><div class="line">      Y value</div><div class="line">      y value changed!</div><div class="line">      Z</div><div class="line">      x value changed!</div></pre></td></tr></table></figure></p>
+<h4 id="注意一点-static修饰的变量和代码块只有在类被加载的时候才执行-且只执行一次-与之相对应的成员变量和构造代码块只要生成一个类的对象就执行一次"><a href="#注意一点-static修饰的变量和代码块只有在类被加载的时候才执行-且只执行一次-与之相对应的成员变量和构造代码块只要生成一个类的对象就执行一次" class="headerlink" title="注意一点:static修饰的变量和代码块只有在类被加载的时候才执行,且只执行一次;与之相对应的成员变量和构造代码块只要生成一个类的对象就执行一次."></a>注意一点:static修饰的变量和代码块只有在类被加载的时候才执行,且只执行一次;与之相对应的成员变量和构造代码块只要生成一个类的对象就执行一次.</h4>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2016/09/13/JAVA类的初始化/" data-id="cit13lv6d00003c6mejqsdf12" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>seguir:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2016/09/07/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">antic</strong>
+        <p class="article-nav-title">Hello World</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/13/JAVA类的初始化/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.processon.com/chart_image/57d1209ee4b0942d7a758181.png)" alt="JAVA类的初始化" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/13/JAVA类的初始化/" class="title">JAVA类的初始化</a></p>
+                            <p class="item-date"><time datetime="2016-09-13T05:08:35.497Z" itemprop="datePublished">2016-09-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/09/07/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/09/07/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2016-09-07T08:20:51.936Z" itemprop="datePublished">2016-09-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">arxius</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">etiquetes</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-class-jvm/">java,class,jvm</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">etiqueta cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/java-class-jvm/" style="font-size: 10px;">java,class,jvm</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2016 John Doe</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2016/09/13/JAVA类的初始化/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+    
+        <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-share.min.js"></script>
+        <script src="/vendor/lightgallery/js/lg-video.min.js"></script>
+    
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
